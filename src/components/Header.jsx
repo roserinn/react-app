@@ -1,10 +1,13 @@
+import HorizonUIAvatar from '../assets/HorizonUIAvatar.svg'
+import HorizonUI from '../assets/HorizonUI.svg'
+
 const Header = () => {
   return (
     <div className="header items-start justify-start w-screen pt-6 pb-6 pl-20 pr-20">
       <div className="header__wrapper flex flex-row items-center justify-between w-100">
         <div className="header__logo flex gap-2">
-          <img src="../src/assets/HorizonUIAvatar.svg" alt="logo" />
-          <img src="../src/assets/HorizonUI.svg" alt="logo" />
+          <img src={HorizonUIAvatar} alt="logo" />
+          <img src={HorizonUI} alt="logo" />
         </div>
 
         <div className="header__menu">
