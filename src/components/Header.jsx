@@ -1,10 +1,22 @@
-const Header = () => {
+import HorizonUIAvatar from '../assets/HorizonUIAvatar.svg'
+import HorizonUI from '../assets/HorizonUI.svg'
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+const Header = ({setOpen}) => {
+
+  const { contextSafe } = useGSAP();
+
+  const onEnter = contextSafe(({ currentTarget }) => {
+    gsap.to(currentTarget, { rotation: "+=360" });
+  });
+
   return (
-    <div className="header items-start justify-start w-screen pt-6 pb-6 pl-20 pr-20">
-      <div className="header__wrapper flex flex-row items-center justify-between w-100">
+    <header className="py-6 mb-10">
+      <div className=" flex flex-row items-center justify-between w-[1200px] mx-auto">
         <div className="header__logo flex gap-2">
-          <img src="../src/assets/HorizonUIAvatar.svg" alt="logo" />
-          <img src="../src/assets/HorizonUI.svg" alt="logo" />
+          <img onClick={onEnter} src={HorizonUIAvatar} alt="logo" />
+          <img src={HorizonUI} alt="logo" />
         </div>
 
         <div className="header__menu">
@@ -17,11 +29,11 @@ const Header = () => {
         </div>
 
         <div className="header__autorisation flex items-center gap-5">
-          <button>Log In</button>
-          <button className="bg-violet-100 text-blue-600 pr-4 pl-4 pt-1 pb-1 font-bold">Sign Up</button>
+          <button onClick={() => setOpen(true)}>Log In</button>
+          <button className="bg-violet-100 text-blue-600 pr-4 pl-4 pt-1 pb-1 font-bold rounded-lg">Sign Up</button>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
